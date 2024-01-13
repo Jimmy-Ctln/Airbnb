@@ -24,7 +24,7 @@ export const RegisterPage = () => {
   return (
     <div className="mt-4 grow flex items-center justify-around">
       <div className="mb-64">
-        <h1 className="text-4xl text-center mb-4">Register</h1>
+        <h1 className="text-4xl text-center mb-4">Inscription</h1>
         <form className="max-w-lg mx-auto" onSubmit={registerUser}>
           <input
             type="text"
@@ -34,21 +34,21 @@ export const RegisterPage = () => {
           />
           <input
             type="email"
-            placeholder="your@email.com"
+            placeholder="JohnDoe@gmail.com"
             value={email}
             onChange={(ev) => setEmail(ev.target.value)}
           />
           <input
             type="password"
-            placeholder="password"
+            placeholder="Mot de passe"
             value={password}
             onChange={(ev) => setPassword(ev.target.value)}
           />
-          <button className="primary">Register</button>
+          <button className="primary">Inscription</button>
           <div className="text-center py-2 text-gray-500">
-            Already remember ?{" "}
+            Déjà inscrit ?{" "}
             <Link className="underline text-black" to="/login">
-              Login
+              Connexion
             </Link>
           </div>
         </form>

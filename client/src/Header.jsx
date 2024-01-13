@@ -5,9 +5,8 @@ import { UserContext } from "./UserContext";
 export const Header = () => {
   const {user} = useContext(UserContext)
   return (
-    <div>
-      <header className="flex justify-between">
-        <Link to={'/'} href="" className="flex items-center gap-1">
+      <header className="flex justify-between max-[830px]:flex-col max-[830px]:mx-auto max-[830px]:gap-8 max-lg:w-full">
+        <Link to={'/'} href="" className="flex items-center gap-1 max-[830px]:mx-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -24,12 +23,12 @@ export const Header = () => {
           </svg>
           <span className="font-bold text-xl">airbnb</span>
         </Link>
-        <div className="flex gap-2 items-center border border-gray-300 rounded-full py-2 px-4 shadow-lg">
-          <div>Anywhere</div>
+        <div className="flex gap-2 items-center border border-gray-300 rounded-full py-2 px-4 shadow-lg max-[830px]:flex-col max-[830px]:rounded-xl max-[830px]:w-full">
+          <div>N&apos;importe où</div>
           <div className="border border-l h-full border-gray-300"></div>
-          <div>Any week</div>
+          <div>Une semaine</div>
           <div className="border border-l h-full border-gray-300"></div>
-          <div>Add guests</div>
+          <div className="text-gray-500">Ajouter des voyageurs</div>
           <button className="bg-primary text-white p-1.5 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +85,5 @@ export const Header = () => {
           )}
         </Link>
       </header>
-    </div>
   );
 };

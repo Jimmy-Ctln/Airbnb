@@ -1,58 +1,55 @@
-import { Link} from "react-router-dom";
-import { AccountNav } from "../AccountNav";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import axios from "axios";
+import { BookingWidget } from "../BookingWidget";
+import { PlaceGallery } from "../PlaceGallery";
+import { AddressLink } from "../AddressLink";
+
 
 export const PlacePage = () => {
-
-  const [places, setPlaces] = useState([])
+  const { id } = useParams();
+  const [place, setPlace] = useState("");
+  
 
   useEffect(() => {
-    axios.get('/places').then(({data}) => {
-      setPlaces(data)
-    })
-  }, [])
+    if (!id) {
+      return;
+    } else {
+      axios.get(`/places/${id}`).then((response) => {
+        setPlace(response.data);
+      });
+    }
+  }, [id]);
+
+  if (!place) return "";
 
   return (
-    <div>
-      <AccountNav/>
-        <div className="text-center">
-          <Link
-            className="inline-flex gap-1 bg-primary text-white py-2 px-6 rounded-full"
-            to={"/account/places/new"}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-            Add new place
-          </Link>
+    <div className="mt-4 bg-gray-100 -mx-8 px-8 pt-8">
+      <h1 className="text-2xl">{place.title}</h1>
+        <AddressLink children={place.address} className={''}/>
+        <PlaceGallery place={place}/>
+      <div className="mt-8 mb-8 gap-4 grid grid-cols-1 md:grid-cols-[2fr_1fr]">
+        <div>
+          <div className="my-4">
+            <h2 className="font-semibold text-2xl">Description</h2>
+            {place.description}
           </div>
-          <div className="mt-4">
-            {places.length > 0 && places.map(place => (
-              <Link to={'/account/places/'+place._id} key={place} className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl">
-                <div className="flex w-32 h-32 bg-gray-300 grow shrink-0">
-                  {place.photos.length > 0 && (
-                    <img className="object-cover w-full" src={'http://localhost:4000/uploads/'+place.photos[0]} alt= ""/>
-                  )}
-                </div>
-                <div className="grow-0 shrink">
-                  <h2 className="text-xl ">{place.title}</h2>
-                  <p className="text-sm mt-2">{place.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-    </div>
+          Check-in: {place.checkIn}
+          <br />
+          Check-out: {place.checkOut}
+          <br />
+          Max number of guests: {place.maxGuests}
+        </div>
+            <BookingWidget place={place}/>
+        </div>
+        <div className="bg-white -mx-8 px-8 py-8 border-t">
+        <div>
+            <h2 className="font-semibold text-2xl">Extra Info</h2>
+        </div>
+            <div className="mb-4 mt-2 text-sm text-gray-700 leading-5">
+                {place.extraInfo}
+            </div>
+        </div>
+      </div>
   );
 };

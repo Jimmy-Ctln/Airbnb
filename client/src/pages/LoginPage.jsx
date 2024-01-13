@@ -28,15 +28,15 @@ export const LoginPage = () => {
   return (
     <div className="mt-4 grow flex items-center justify-around">
       <div className="mb-64">
-        <h1 className="text-4xl text-center mb-4">Login</h1>
+        <h1 className="text-4xl text-center mb-4">Connexion</h1>
         <form className="max-w-lg mx-auto" onSubmit={handleLoginSubmit}>
-          <input type="email" placeholder="your@email.com" value={email} onChange={ev => setEmail(ev.target.value)}/>
-          <input type="password" placeholder="password" value={password} onChange={ev => setPassword(ev.target.value)}/>
-          <button className="primary">Login</button>
+          <input type="email" placeholder="JohnDoe@gmail.com" value={email} onChange={ev => setEmail(ev.target.value)}/>
+          <input type="password" placeholder="Mot de passe" value={password} onChange={ev => setPassword(ev.target.value)}/>
+          <button className="primary">Connexion</button>
           <div className="text-center py-2 text-gray-500">
-            Don&apos;t have an account yet?{" "}
+            Vous n&apos;avez pas encore de compte ?{" "}
             <Link className="underline text-black" to="/register">
-              Register now
+            S&apos;incrire
             </Link>
           </div>
         </form>

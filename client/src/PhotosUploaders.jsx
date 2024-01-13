@@ -53,13 +53,13 @@ export const PhotosUploaders = ({ addedPhotos, onChange }) => {
           type="text"
           value={photoLink}
           onChange={(ev) => setPhotoLink(ev.target.value)}
-          placeholder={"Add using a link... jpg"}
+          placeholder={"Ajouter en utilisant un lien... jpg"}
         />
         <button
           onClick={addPhotoByLink}
-          className="bg-gray-200 px-4 rounded-2xl"
+          className=" bg-gray-200 px-4 text-sm rounded-2xl"
         >
-          Add&nbsp;photo
+          Ajouter une&nbsp;photo
         </button>
       </div>
       <div className="mt-2 gap-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
@@ -119,7 +119,7 @@ export const PhotosUploaders = ({ addedPhotos, onChange }) => {
               </button>
             </div>
           ))}
-        <label className="h-32 cursor-pointer flex justify-center items-center gap-1 border bg-transparent rounded-2xl p-8 text-2xl text-gray-600">
+        <label className="h-26 max-xl:h-16 max-md:text-sm max-sm:w-[200px] w-[200px] cursor-pointer flex justify-center items-center gap-1 border bg-transparent rounded-2xl p-8 max-sm:p-0 text-xl text-gray-600">
           <input
             type="file"
             multiple
@@ -132,7 +132,7 @@ export const PhotosUploaders = ({ addedPhotos, onChange }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-8 h-8"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"
@@ -140,7 +140,7 @@ export const PhotosUploaders = ({ addedPhotos, onChange }) => {
               d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
             />
           </svg>
-          Upload
+          Télécharger
         </label>
       </div>
     </>
