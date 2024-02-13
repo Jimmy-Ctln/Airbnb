@@ -52,6 +52,10 @@ db.once('open', () => {
   console.log('Connexion à mongo réussi !');
 });
 
+app.get("/test-on-vercel", (req, res) => {
+  res.json("test ok on Vercel");
+});
+
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
