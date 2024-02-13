@@ -255,3 +255,5 @@ app.get('/bookings', async (req, res) => {
 app.listen(4000, () => {
   console.log("le serveur est sur écoute !");
 });
+
+module.exports = app
