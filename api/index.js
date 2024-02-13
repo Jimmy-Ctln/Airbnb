@@ -24,7 +24,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: ["https://airbnb-client-mocha.vercel.app", "http://localhost:5173"],
   })
 );
 
