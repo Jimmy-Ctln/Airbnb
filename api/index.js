@@ -52,10 +52,6 @@ db.once('open', () => {
   console.log('Connexion à mongo réussi !');
 });
 
-app.get("/test-on-vercel", (req, res) => {
-  res.json("test ok on Vercel");
-});
-
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
@@ -256,8 +252,10 @@ app.get('/bookings', async (req, res) => {
   }).populate('place'))
 })
 
-app.listen(4000, () => {
-  console.log("le serveur est sur écoute !");
+const port = process.env.PORT || 4000;
+
+app.listen(port, () => {
+  console.log(`Le serveur est sur écoute sur le port ${port}`);
 });
 
 module.exports = app
