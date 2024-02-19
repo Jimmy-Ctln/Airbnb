@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: ["https://airbnb-client-mocha.vercel.app", "http://localhost:5173"],
+    origin:["*"]
   })
 );
 
