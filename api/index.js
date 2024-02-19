@@ -1,3 +1,4 @@
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -12,7 +13,6 @@ const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
 const multer = require("multer");
 const fs = require("fs");
-
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "faseiojgzpOjzfzjfzzfjzfzfzheoitj";

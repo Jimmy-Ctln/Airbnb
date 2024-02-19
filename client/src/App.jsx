@@ -1,10 +1,10 @@
+import axios from "axios";
 import {Route, Routes} from "react-router-dom";
 import { IndexPage } from "./pages/IndexPage";
 import { LoginPage } from "./pages/LoginPage";
 import { Layout } from "./Layout";
 import { RegisterPage } from "./pages/RegisterPage";
 import { ProfilePage } from "./pages/ProfilePage";
-import axios from "axios";
 import { UserContextProvider } from "./UserContext";
 import { PlacesPage } from "./pages/PlacesPage";
 import { PlacesFormPage } from "./pages/PlacesFormPage";
@@ -12,7 +12,8 @@ import { PlacePage } from "./pages/PlacePage"
 import { BookingPage } from "./pages/BookingPage"
 import { BookingsPage } from "./pages/BookingsPage"
 
-axios.defaults.baseURL = "http://localhost:4000";
+
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
 axios.defaults.withCredentials = true;
 
 function App() {
